@@ -3,7 +3,13 @@
 This is my first block for Wordpress, created with wp-create-block. It adds a factbox block to use with Gutenberg block editor in Wordpress. 
 It acts mostly like a group block, but it can be aligned right and left (which group blocks can't in later versions of Wordpress). 
 
+![Screenshot of a factbox](/assets/Screenshot1.png)
+
 More importantly it can be collapsed, so that only the first few lines are visible, and the rest of the box is hidden, until it the button is clicked. 
+
+![Screenshot of collapsed factbox](/assets/Screenshot_collapsed.png) ![Screenshot of expanded factbox](/assets/Screenshot_expanded.png)
+
+
 
 ## How to install. 
 Download the files as a .zip-file and install manually as a plugin in Wordpress.
