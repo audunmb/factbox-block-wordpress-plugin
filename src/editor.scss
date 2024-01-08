@@ -1,0 +1,25 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-factbox {
+
+
+
+}
+
+aside.is-style-collapsable .fact-body{
+  overflow: unset;
+  transition: height .5s;
+  transition-timing-function: ease-out;
+  height: auto;
+}
+
+.wp-block-create-block-factbox.is-style-collapsable  button.fact-expand {
+	background:none;
+	svg {
+	transform: rotate(180deg);
+	}
+}

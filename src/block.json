@@ -1,0 +1,73 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/factbox",
+	"version": "0.1.0",
+	"title": "Factbox",
+	"category": "design",
+	"icon": "paperclip",
+	"description": "A factbox block",
+	"example": {},
+	"attributes": {
+	    "align": {
+        "type": "string"
+    	},
+    	"style": {
+            "type": "object",
+            "default": {
+               	"border": {
+		              "color": "#000000",
+		              "radius": "3px",
+		              "style": "solid",
+		              "width": "1px"
+		            }
+            }
+        },
+        "expanderColor": {
+			"type": "string"
+		},
+		"customExpanderColor": {
+			"type": "string"
+		}
+    },
+	"supports": {
+		"html": true,
+	    "align": ["left", "right"],
+	    "anchor": true,
+		"color": {
+			"text": true,
+			"link": true,
+			"background": true
+		},
+		"__experimentalBorder": {
+            "color": true,
+            "radius": true,
+            "style": true,
+            "width": true,
+            "__experimentalDefaultControls": {
+                "color": true,
+                "radius": true,
+                "style": true,
+                "width": true
+            }
+        },
+		"typography": { 
+		    "fontSize": true,
+		    "lineHeight": true
+    	},
+    	"spacing": {
+        	"margin": true,  
+        	"padding": true, 
+	        "blockGap": true 
+	    }
+	},
+	"styles": [
+        { "name": "default", "label": "Default", "isDefault": true },
+        { "name": "collapsable", "label": "Collapsable" }
+    ],
+	"textdomain": "factbox",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

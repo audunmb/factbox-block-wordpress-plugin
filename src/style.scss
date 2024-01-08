@@ -1,0 +1,110 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-factbox {
+	//padding: .5em;
+	//margin: .5em;
+
+	position: relative;
+}
+
+.wp-block-create-block-factbox:not(.has-background) {
+	box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.23);
+	border-radius: 1px;
+	}
+
+.wp-block-create-block-factbox::after, .wp-block-create-block-factbox::before {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.wp-block-create-block-factbox .fact-body > * {
+	margin: auto 1rem;
+	overflow-wrap: break-word;
+}	
+
+.wp-block-create-block-factbox {
+	p, ul, ol, {
+	font-size: var(--wp--preset--font-size--small, small);
+	}
+	h2,h3 {
+	font-size: var(--wp--preset--font-size--large, large);
+	}
+}
+	
+	
+.wp-block-create-block-factbox .fact-body{
+	margin-bottom: 1em;
+	figure.alignleft{float: left;}
+	figure.alignright{float: right;};
+}
+
+@media only screen and (max-width: 769px) and (min-width: 576px){
+	.wp-block-create-block-factbox.alignleft, .wp-block-create-block-factbox.alignright {
+	max-width: calc( ( 100% - var(--wp--style--global--content-size)) / 2 );
+	}
+}
+	
+@media only screen and (min-width: 769px) {
+		.wp-block-create-block-factbox.alignleft, .wp-block-create-block-factbox.alignright {
+	max-width: calc( ( 100% - var(--wp--style--global--content-size)) / 3 );
+	}
+}	
+
+
+.wp-block-create-block-factbox.is-style-collapsable  button.fact-expand  {
+  background: linear-gradient(rgba(255, 255, 255, 0), #fff);
+  position: absolute;
+  bottom: 0;
+  width:100%;
+  border:none;
+  svg {
+    display: block;
+    transition: .2s;
+    border-radius: 50%;
+    margin: 70px auto -10px;
+    height: 20px;
+    width: 20px;
+    fill: #fff;
+    background: var(--wp--preset--color--secondary);
+ 
+  }
+
+
+}
+
+.wp-block-create-block-factbox.is-style-collapsable  button.fact-expand.expanded {
+	background:none;
+	svg {
+	transform: rotate(180deg);
+	}
+}
+
+
+.wp-block-create-block-factbox:not(.is-style-collapsable) button.fact-expand {
+display:none;
+}
+
+aside.is-style-collapsable .fact-body {	
+  overflow: hidden;
+  transition: height .5s;
+  transition-timing-function: ease-out;
+  height: 5rem;
+  figure {
+  display:none;
+  }
+}
+
+aside.is-style-collapsable .fact-body.expanded {
+	height: auto;
+	figure {
+	display: table;
+ 
+  	}
+    }
+
