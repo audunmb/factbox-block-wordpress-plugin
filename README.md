@@ -21,7 +21,4 @@ The block can only be transformed from a group for now. (This might change). It 
 ## Collapse/Expand
 There's a basic style and a collapsable style. The basic style is just a group block that can be aligned left and right. The Collapsable style has a button below, and will only a few lines high until the button is clicked. In the editor, the box won't be collapsed, this only happens on the frontend, otherwise it might be difficult to edit the contents. 
 
-## To do's
-* Add translations
-* Add accesibility
-* Add support for changing the expand button. 
+
