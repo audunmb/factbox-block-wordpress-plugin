@@ -11,7 +11,10 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { InnerBlocks, useBlockProps, AlignmentToolbar } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps, AlignmentToolbar, InspectorControls, withColors,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients
+ } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -28,20 +31,66 @@ import './editor.scss';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
  * @return {Element} Element to render.
- */
- 
-const Edit = () => {
-	const blockProps = useBlockProps();
+ */ 
+const Edit = ( {
+	attributes: {
+		customExpanderColor
+	},
+	expanderColor,
+	setExpanderColor,
+	setAttributes,
+	style,
+	clientId
+	} ) => {
 	const expandIcon = (
      <svg viewBox="-40 -40 180 180"><path d="M100 19.8L50 86.4 0 19.8"></path></svg>
 	);
+	const colorGradientSettings = useMultipleOriginColorsAndGradients();
+	const blockProps = useBlockProps( {
+	style: {
+		...style,
+		'--expander-icon-color': expanderColor.slug
+			    ? `var( --wp--preset--color--${ expanderColor.slug } )`
+			    : customExpanderColor,
+		}
+		}
+	);
+	
+	const expanderColorDropdown = (
+		<ColorGradientSettingsDropdown
+		settings={ [ {
+			label: __( 'Expander', 'factbox' ),
+			colorValue: expanderColor.color || customExpanderColor,
+			onColorChange: ( value ) => {
+				setExpanderColor( value );
 
-
+				setAttributes( {
+					customExpanderColor: value
+				} );
+			}
+		} ] }
+		panelId={ clientId }
+		hasColorsOrGradients={ false }
+		disableCustomColors={ false }
+		__experimentalIsRenderedInSidebar
+		{ ...colorGradientSettings }
+	/>
+	);
+	
 	return (
+		<>
+		<InspectorControls group="color">
+			{ expanderColorDropdown }
+		</InspectorControls>
 		<aside { ...blockProps }>
 			<div class="fact-body"><InnerBlocks/></div>
 			<button onclick="this.previousElementSibling.classList.toggle('expanded');this.classList.toggle('expanded')" class="fact-expand"> { expandIcon } </button>
 		</aside>
+		</>
 	);
 };
-export default Edit;
+
+export default withColors( {
+	expanderColor: 'expander-color'
+} )( Edit );
+

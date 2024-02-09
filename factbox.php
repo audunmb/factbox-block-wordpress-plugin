@@ -1,16 +1,16 @@
 <?php
 /**
  * Plugin Name:       Factbox
- * Description:       Example block scaffolded with Create Block tool.
+ * Description:       Factbox block
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           0.1.0
- * Author:            The WordPress Contributors
- * License:           GPL-2.0-or-later
+ * Version:           0.10.1
+ * Author:            Audun
+ * License:           GPL2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       factbox
  *
- * @package           create-block
+ * @package           attac
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

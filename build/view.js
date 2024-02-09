@@ -1,1 +1,1 @@
-console.log("Hello World! (from create-block-factbox block)");
+console.log("Hello World! (from editorial-factbox block)");

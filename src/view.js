@@ -21,7 +21,5 @@
  */
 
 /* eslint-disable no-console */
-console.log( 'Hello World! (from create-block-factbox block)' );
+console.log( 'Hello World! (from editorial-factbox block)' );
 /* eslint-enable no-console */
-
-

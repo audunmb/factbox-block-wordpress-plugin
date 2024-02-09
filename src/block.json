@@ -1,27 +1,21 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/factbox",
-	"version": "0.1.0",
+	"name": "attac/factbox",
+	"version": "0.1",
 	"title": "Factbox",
 	"category": "design",
 	"icon": "paperclip",
-	"description": "A factbox block",
-	"example": {},
+	"description": "A fact box block. The fact box contains background information for the story. By putting denser information there, you can make the story easier to read.",
+	"example": {
+	
+	},
 	"attributes": {
 	    "align": {
         "type": "string"
     	},
     	"style": {
-            "type": "object",
-            "default": {
-               	"border": {
-		              "color": "#000000",
-		              "radius": "3px",
-		              "style": "solid",
-		              "width": "1px"
-		            }
-            }
+            "type": "object"
         },
         "expanderColor": {
 			"type": "string"
@@ -62,7 +56,7 @@
 	    }
 	},
 	"styles": [
-        { "name": "default", "label": "Default", "isDefault": true },
+        { "name": "basic", "label": "Basic", "isDefault": true },
         { "name": "collapsable", "label": "Collapsable" }
     ],
 	"textdomain": "factbox",
